@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&family=Fira+Code:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-primary: #F59E0B;
+  --color-brand-secondary: #D97706;
+  
+  /* High Density Dark Theme Colors */
+  --color-dark-bg: #0a0a00;
+  --color-dark-sidebar: #14140a;
+  --color-dark-card: #14140a;
+  --color-dark-border: #1f1f0f;
+  --color-dark-input: #1f1f0f;
+  --color-dark-text: #fdfce8;
+  
+  /* Light Theme Colors */
+  --color-light-bg: #fffbeb;
+  --color-light-card: #fef3c7;
+  --color-light-border: #fde68a;
+  --color-light-text: #1f2937;
+}
+
+@layer base {
+  body {
+    @apply font-sans transition-colors duration-200 selection:bg-amber-500/30;
+    color: var(--color-dark-text);
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-display {
+    @apply font-display;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-amber-500/10 rounded-full hover:bg-amber-500/30 transition-colors;
+  }
+
+  .markdown-body {
+    @apply leading-relaxed text-sm md:text-base;
+  }
+  .markdown-body h1 { @apply text-2xl font-bold mb-4 mt-6; }
+  .markdown-body h2 { @apply text-xl font-bold mb-3 mt-5; }
+  .markdown-body p { @apply mb-4; }
+  .markdown-body ul, .markdown-body ol { @apply mb-4 pl-6; }
+  .markdown-body li { @apply mb-1; }
+  .markdown-body pre { @apply bg-[#0c0c05] rounded-xl p-4 overflow-x-auto mb-4 border border-[#1f1f0f] relative text-white; }
+  .markdown-body code { @apply font-mono bg-amber-500/10 px-1.5 py-0.5 rounded text-amber-600 text-[13px]; }
+  .markdown-body pre code { @apply bg-transparent p-0 block text-inherit; }
+  .markdown-body blockquote { @apply border-l-4 border-amber-500/50 pl-4 italic my-4 opacity-70; }
+  .markdown-body table { @apply w-full border-collapse mb-4 text-sm; }
+  .markdown-body th { @apply border p-2 bg-[#14140a] text-amber-500; }
+  .markdown-body td { @apply border p-2; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.95); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Toast Animations */
+@keyframes slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in {
+  animation: slide-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
