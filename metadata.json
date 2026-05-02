@@ -1,0 +1,6 @@
+{
+  "name": "Sinvo",
+  "description": "A modern, secure, and fully-featured AI chat application called Sinvo with a professional interface, integrated with OpenRouter and Groq APIs, supporting image generation and Firebase cloud sync.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["AI Chat", "Image Generation", "Firebase Auth", "Cloud Sync"]
+}
